@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schema extends Model
 {
-    //
+    protected $casts = [
+        'values' => 'array',
+    ];
 }
