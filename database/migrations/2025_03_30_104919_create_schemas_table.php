@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('schemas', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['string', 'number', 'integer', 'boolean', 'array', 'object']);
-            $table->json('options')->nullable();
-            $table->json('example')->nullable();
+            $table->string('name');
+            $table->json('values');
             $table->timestamps();
         });
     }

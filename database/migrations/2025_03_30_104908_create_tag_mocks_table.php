@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('tag_mocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tag_id')->constrained('tags')->cascadeOnDelete();
+            $table->foreignId('mock_id')->constrained('mocks')->cascadeOnDelete();
             $table->timestamps();
         });
     }

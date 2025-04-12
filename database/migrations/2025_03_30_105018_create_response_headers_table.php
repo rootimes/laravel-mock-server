@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('response_headers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('response_id')->constrained('responses')->onDelete('cascade');
+            $table->foreignId('response_id')->constrained('responses')->cascadeOnDelete();
             $table->string('key');
             $table->string('value');
             $table->boolean('required')->default(false);

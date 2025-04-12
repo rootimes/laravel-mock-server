@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('path')->unique();
             $table->string('summary')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('deprecated')->default(false);
             $table->timestamps();
         });
     }

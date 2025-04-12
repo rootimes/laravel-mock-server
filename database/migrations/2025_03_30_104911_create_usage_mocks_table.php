@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parameters', function (Blueprint $table) {
+        Schema::create('usage_mocks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('mock_id')->constrained('mocks')->cascadeOnDelete();
-            $table->foreignId('schema_id')->constrained('schemas')->cascadeOnDelete();
-            $table->string('name');
-            $table->string('description')->nullable();
-            $table->enum('in', ['query', 'path', 'header', 'cookie']);
-            $table->boolean('required')->default(false);
+            $table->foreignId('usage_id')->constrained('usages')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parameters');
+        Schema::dropIfExists('usage_mocks');
     }
 };

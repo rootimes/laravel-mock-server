@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mock_id')->constrained('mocks')->onDelete('cascade');
+            $table->foreignId('mock_id')->constrained('mocks')->cascadeOnDelete();
             $table->integer('status_code');
+            $table->string('name');
             $table->string('description')->nullable();
             $table->json('content')->nullable();
             $table->timestamps();

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('auth_mocks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('auth_id')->constrained('auths')->onDelete('cascade');
-            $table->foreignId('mock_id')->constrained('mocks')->onDelete('cascade');
+            $table->foreignId('auth_id')->constrained('auths')->cascadeOnDelete();
+            $table->foreignId('mock_id')->constrained('mocks')->cascadeOnDelete();
             $table->timestamps();
         });
     }
