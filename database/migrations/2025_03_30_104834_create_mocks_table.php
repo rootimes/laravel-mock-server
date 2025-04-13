@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mocks', function (Blueprint $table) {
             $table->id();
             $table->enum('method', ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])->default('GET');
+            $table->foreignId('response_id')->nullable()->constrained('responses')->nullOnDelete();
             $table->string('path')->unique();
             $table->string('summary')->nullable();
             $table->text('description')->nullable();

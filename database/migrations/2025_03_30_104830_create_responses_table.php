@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mock_id')->constrained('mocks')->cascadeOnDelete();
-            $table->integer('status_code');
             $table->string('name');
-            $table->string('description')->nullable();
-            $table->json('content')->nullable();
+            $table->integer('status_code');
+            $table->text('description')->nullable();
+            $table->json('example')->nullable();
             $table->timestamps();
         });
     }

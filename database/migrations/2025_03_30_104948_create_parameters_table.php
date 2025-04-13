@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('mock_id')->constrained('mocks')->cascadeOnDelete();
             $table->foreignId('schema_id')->constrained('schemas')->cascadeOnDelete();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->enum('in', ['query', 'path', 'header', 'cookie']);
             $table->boolean('required')->default(false);
             $table->timestamps();
