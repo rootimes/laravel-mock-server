@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use ValentinMorice\FilamentJsonColumn\JsonColumn;
 
 class MockResource extends Resource
 {
@@ -96,6 +97,27 @@ class MockResource extends Resource
                             ->default(false),
                     ])
                     ->columnSpanFull(),
+                Forms\Components\Select::make('response_id')
+                    ->label('Response')
+                    ->relationship('response', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('name')
+                            ->label('Response Name')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('status_code')
+                            ->label('Status Code')
+                            ->required()
+                            ->maxLength(3),
+                        Forms\Components\Textarea::make('description')
+                            ->label('Description')
+                            ->maxLength(65535)
+                            ->rows(3),
+                        JsonColumn::make('example')
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 
