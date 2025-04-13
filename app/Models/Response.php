@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Response extends Model
 {
-    public function mock(): HasMany
+    public function mocks(): HasMany
     {
         return $this->hasMany(Mock::class);
     }

@@ -23,7 +23,7 @@ class Mock extends Model
         return $this->belongsTo(Usage::class);
     }
 
-    public function parameter(): HasMany
+    public function parameters(): HasMany
     {
         return $this->hasMany(Parameter::class);
     }
