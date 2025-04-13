@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Mock extends Model
 {
@@ -29,8 +28,8 @@ class Mock extends Model
         return $this->hasMany(Parameter::class);
     }
 
-    public function response(): HasOne
+    public function response(): BelongsTo
     {
-        return $this->hasOne(Response::class);
+        return $this->belongsTo(Response::class);
     }
 }
